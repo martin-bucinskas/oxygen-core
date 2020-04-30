@@ -1,7 +1,9 @@
-package martinb.oxygen.oxygencore.accounts;
+package martinb.oxygen.oxygencore.accounts.providers.revolut;
 
+import martinb.oxygen.oxygencore.accounts.IAccount;
 import martinb.oxygen.oxygencore.accounts.providers.AccountProvider;
 import martinb.oxygen.oxygencore.accounts.providers.AccountType;
+import martinb.oxygen.oxygencore.accounts.providers.revolut.RevolutAccount;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +20,6 @@ public class RevolutAccountTest {
     @BeforeEach
     public void setUp() {
         account = new RevolutAccount(
-            expectedAccountProvider,
             expectedAccountType,
             expectedAccountId,
             getExpectedAccountName

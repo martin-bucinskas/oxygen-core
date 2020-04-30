@@ -14,6 +14,10 @@ management:
             base-path: "/"
 
 spring:
+    security:
+        user:
+            name: martin
+
     application:
         name: "Oxygen-Core"
 
