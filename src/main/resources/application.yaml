@@ -1,0 +1,32 @@
+server:
+    port: ${PORT:8081}
+
+management:
+    endpoint:
+        health:
+            show-details: "always"
+            status:
+                http-mapping:
+                    UP: 200
+                    DOWN: 503
+    endpoints:
+        web:
+            base-path: "/"
+
+spring:
+    application:
+        name: "Oxygen-Core"
+
+    datasource:
+        url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_NAME:oxygen_core_db}
+        username: ${POSTGRES_USER:local_user}
+        password: ${POSTGRES_PASS:this_is_not_a_password}
+        driver-class-name: org.postgresql.Driver
+
+    flyway:
+        enabled: true
+        baseline-on-migrate: true
+        schemas: ${POSTGRES_NAME:oxygen_core_db}
+    jackson:
+        date-format: yyyy-MM-dd
+
