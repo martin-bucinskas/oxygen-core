@@ -11,7 +11,16 @@ public class AccountLoader implements IAccountLoader {
 
     @Override
     public IAccount loadAccount(AccountProvider accountProvider, String token, String accountId) {
-        //TODO: write an account loader service to load an account
+        switch(accountProvider) {
+            case REVOLUT:
+                return loadRevolutAccount(token, accountId);
+            case UNKNOWN:
+            default:
+                throw new RuntimeException("Unknown provider.");
+        }
+    }
+
+    public IAccount loadRevolutAccount(String token, String accountId) {
         return new RevolutAccount(AccountType.PERSONAL, "A001-002-0003", "Jane Doe");
     }
 }

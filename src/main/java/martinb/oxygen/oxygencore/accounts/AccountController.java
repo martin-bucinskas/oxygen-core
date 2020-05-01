@@ -2,6 +2,7 @@ package martinb.oxygen.oxygencore.accounts;
 
 import martinb.oxygen.oxygencore.accounts.providers.AccountProvider;
 import martinb.oxygen.oxygencore.accounts.services.AccountLoader;
+import martinb.oxygen.oxygencore.accounts.services.IAccountLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AccountController {
 
-    private AccountLoader accountLoader;
+    private IAccountLoader accountLoader;
 
     @Autowired
     public AccountController(AccountLoader accountLoader) {
